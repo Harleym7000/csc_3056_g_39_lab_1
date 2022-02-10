@@ -14,8 +14,8 @@ public class Transaction {
 		this.transaction_date = transaction_date;
 	}
 	
-	public String getTransactionDetails() {
-		return account_number + ", " + transaction_amount + ", " + transaction_date;
+	public String toString() {
+		return "Account number: "+account_number+", Transaction amount: "+transaction_amount+", Transaction Date: "+transaction_date;
 	}
 
 	public String getAccount_number() {
