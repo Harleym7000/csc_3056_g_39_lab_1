@@ -13,6 +13,7 @@ public class SimpleBankingAppTest {
 		// http://xunitpatterns.com/Four%20Phase%20Test.html 
 		
 		// Setup phase: none
+		//Test
 		
 		// Exercise phase
 		mainApp.populateUserData();
