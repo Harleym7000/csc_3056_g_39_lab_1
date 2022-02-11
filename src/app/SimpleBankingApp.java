@@ -9,11 +9,13 @@ import java.util.Vector;
 import model.Account;
 import model.Transaction;
 import model.User;
+import model.Withdrawal;
 
 public class SimpleBankingApp {
 	public static Vector<User> users = new Vector<User>();
 	public static Vector<Account> accounts  = new Vector<Account>();
 	public static Vector<Transaction> transactions =  new Vector<Transaction>();
+	public static Vector<Withdrawal> withdrawals = new Vector<Withdrawal>();
 	
 	public static void populateUserData() {
 		// structure of each record: username (email address), password, first_name, last_name, mobile_number
@@ -81,12 +83,21 @@ public class SimpleBankingApp {
 		transactions.add(aTransaction);
 	}
 	
+	public static void addWithdrawal(String account_number, double amount) {
+		Withdrawal aWithdrawal = new Withdrawal(account_number, amount, Calendar.getInstance().getTime());
+		withdrawals.add(aWithdrawal);
+	}
+	
 	public static double getBalance(String account_number) {
 		double balance = 0.0;
 		
 		for  (int i = 0; i < transactions.size(); i++) 
             if 	(transactions.get(i).getAccount_number() == account_number) 
             	balance += transactions.get(i).getTransaction_amount();
+		
+		for  (int i = 0; i < withdrawals.size(); i++) 
+            if 	(withdrawals.get(i).getAccount_number() == account_number) 
+            	balance -= withdrawals.get(i).getTransaction_amount();
 		
 		return balance;		
 	}

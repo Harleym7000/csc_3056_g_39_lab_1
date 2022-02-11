@@ -51,16 +51,27 @@ public class SimpleBankingAppTest {
 	}
 
 	// this test method (test case) verifies if the Withdraw feature works properly
-	/* TODO
+	//TODO
 	public static void testWithdrawals() {
-		...
+		//Setup 
+		double balanceBefore = mainApp.getBalance("5495-1234");
+		double withdrawalAmount = 5.00;
+		//Exercise
+		mainApp.addWithdrawal("5495-1234", withdrawalAmount);
+		double balanceAfter = mainApp.getBalance("5495-1234");
+		assert balanceBefore - withdrawalAmount == balanceAfter;
+		System.out.println("testWithdrawals: TC2 passed.");
+		//tear-down
+		mainApp.addWithdrawal("5495-1234", +withdrawalAmount);
+		
+		
 	}
-	*/
+	
 	
 	public static void main(String[] args) {
 		testDataLoads();
 		testDeposits();
-		// testWithdrawals(); -- uncomment this call, when you have developed the test method (test case)
+		testWithdrawals(); //-- uncomment this call, when you have developed the test method (test case)
 	}
 
 }

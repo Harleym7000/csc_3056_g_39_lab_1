@@ -19,5 +19,3 @@ public class AccountTests {
 	}
 }
 
-//test comment
-//test comment 2
